@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quality Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-testid="app-shell" data-theme="light">
+      <div class="dashboard-shell">
+        <aside class="sidebar" aria-label="Dashboard sidebar">
+          <a class="brand" href="/" aria-label="VisualSure home">
+            <span class="brand-mark">V</span>
+            <span>VisualSure</span>
+          </a>
+          <nav aria-label="Primary navigation">
+            <a href="/">Home</a>
+            <a href="/product.html">Product</a>
+            <a aria-current="page" href="/dashboard.html">Dashboard</a>
+          </nav>
+        </aside>
+
+        <main class="content dashboard-main">
+          <header class="dashboard-header">
+            <div>
+              <p class="eyebrow">Release readiness</p>
+              <h1>Quality Dashboard</h1>
+              <p
+                data-testid="dynamic-timestamp"
+                data-dynamic-content="true"
+                data-visual-value="Last synced: 2026-07-20T00:00:00.000Z"
+              >
+                Last synced: 2026-07-20T00:00:00.000Z
+              </p>
+            </div>
+            <div class="profile" data-testid="user-profile">
+              <span class="avatar">MS</span>
+              <div>
+                <strong>Mehjabin SQA</strong>
+                <div
+                  data-testid="user-status"
+                  data-dynamic-content="true"
+                  data-visual-value="Status: Reviewing baselines"
+                >
+                  Status: Reviewing baselines
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <section class="grid stats-grid" aria-label="Quality statistics">
+            <article class="stat-card" data-testid="stat-card-revenue">
+              <h2>Release Risk</h2>
+              <p class="stat-value">2.4%</p>
+              <p>Down 1.1 points from the previous checkpoint.</p>
+            </article>
+            <article class="stat-card">
+              <h2>Visual Tests</h2>
+              <p class="stat-value">44</p>
+              <p>Desktop and mobile baselines are separated by project.</p>
+            </article>
+            <article class="stat-card">
+              <h2>Smoke Tests</h2>
+              <p class="stat-value">18</p>
+              <p>Chromium, Firefox, and WebKit sanity coverage.</p>
+            </article>
+            <article class="stat-card">
+              <h2>Coverage</h2>
+              <p class="stat-value">96%</p>
+              <p>Pages, components, states, and viewport checks.</p>
+            </article>
+          </section>
+
+          <section class="dashboard-panel" aria-labelledby="chart-heading">
+            <h2 id="chart-heading">Visual Stability Index</h2>
+            <div class="chart" aria-label="CSS bar chart">
+              <div class="bar"><span style="width: 92%"></span></div>
+              <div class="bar"><span style="width: 84%"></span></div>
+              <div class="bar"><span style="width: 78%"></span></div>
+            </div>
+            <div class="notice" data-testid="notification-area">
+              No blocking visual differences are currently approved for release.
+            </div>
+            <table class="data-table" data-testid="dashboard-table">
+              <thead>
+                <tr>
+                  <th>Area</th>
+                  <th>Owner</th>
+                  <th>Status</th>
+                  <th>Baseline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Home</td>
+                  <td>QA</td>
+                  <td>Stable</td>
+                  <td>Approved</td>
+                </tr>
+                <tr>
+                  <td>Product</td>
+                  <td>Design</td>
+                  <td>Stable</td>
+                  <td>Approved</td>
+                </tr>
+                <tr>
+                  <td>Dashboard</td>
+                  <td>Release</td>
+                  <td>Reviewing</td>
+                  <td>Approved</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </main>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+services:
+  visual-tests:
+    build: .
+    working_dir: /work
+    environment:
+      CI: 'true'
+      BASE_URL: http://127.0.0.1:4173
+    volumes:
+      - .:/work
+      - /work/node_modules

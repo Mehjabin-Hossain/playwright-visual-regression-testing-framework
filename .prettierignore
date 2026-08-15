@@ -1,0 +1,11 @@
+node_modules
+playwright-report
+test-results
+blob-report
+artifacts
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.webp
+**/*.gif
+package-lock.json

@@ -1,0 +1,81 @@
+name: Visual Regression Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: visual-regression-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-regression:
+    name: Playwright visual quality gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox webkit
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Run smoke tests
+        run: npm run test:smoke
+
+      - name: Run Chromium visual regression tests
+        run: npm run test:visual:chromium
+
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Upload visual difference artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-difference-artifacts
+          path: test-results
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Upload traces, videos, and screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-debug-artifacts
+          path: |
+            test-results/**/*.zip
+            test-results/**/*.webm
+            test-results/**/*.png
+          if-no-files-found: ignore
+          retention-days: 14

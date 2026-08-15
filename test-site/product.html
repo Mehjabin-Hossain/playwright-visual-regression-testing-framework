@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Astra UI Kit</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-testid="app-shell" data-theme="light">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="/" aria-label="VisualSure home">
+            <span class="brand-mark">V</span>
+            <span>VisualSure</span>
+          </a>
+          <nav class="primary-nav" aria-label="Primary navigation">
+            <a href="/">Home</a>
+            <a aria-current="page" href="/product.html">Product</a>
+            <a href="/dashboard.html">Dashboard</a>
+          </nav>
+          <button
+            class="icon-button"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            data-testid="mobile-menu-toggle"
+          >
+            menu
+          </button>
+        </div>
+        <div
+          class="mobile-panel"
+          aria-hidden="true"
+          aria-label="Mobile navigation"
+          data-testid="mobile-navigation-panel"
+        >
+          <a href="/">Home</a>
+          <a href="/product.html">Product</a>
+          <a href="/dashboard.html">Dashboard</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="product-layout">
+          <div class="product-visual">
+            <img src="images/product-card.svg" alt="Astra UI Kit product preview" />
+          </div>
+          <article class="product-card" data-testid="product-card">
+            <p class="eyebrow">Design asset</p>
+            <h1>Astra UI Kit</h1>
+            <p class="lead">
+              A polished UI package for visual testing examples and design review demos.
+            </p>
+            <p class="price">$149</p>
+            <p class="rating" aria-label="Rating 4.8 out of 5">Rating: 4.8 / 5</p>
+            <label class="quantity-control">
+              Quantity
+              <input
+                data-testid="quantity-input"
+                type="number"
+                min="1"
+                value="1"
+                aria-label="Quantity"
+              />
+            </label>
+            <div class="product-actions">
+              <button class="button primary" type="button" data-testid="add-to-cart">
+                Add Astra UI Kit to cart
+              </button>
+              <a class="button secondary" href="/dashboard.html">View dashboard</a>
+            </div>
+            <div class="notice" hidden aria-live="polite" data-testid="notification-area"></div>
+          </article>
+        </section>
+
+        <section class="tabs" aria-label="Product information">
+          <div class="tab-list" role="tablist" aria-label="Product information tabs">
+            <button role="tab" aria-selected="true" aria-controls="details-panel">Details</button>
+            <button role="tab" aria-selected="false" aria-controls="shipping-panel">
+              Shipping
+            </button>
+            <button role="tab" aria-selected="false" aria-controls="support-panel">Support</button>
+          </div>
+          <div class="tab-panel" id="details-panel" role="tabpanel">
+            Components include cards, tables, controls, navigation, and notification states.
+          </div>
+          <div class="tab-panel" id="shipping-panel" role="tabpanel" hidden>
+            Delivery is instant because the product is a local deterministic demo asset.
+          </div>
+          <div class="tab-panel" id="support-panel" role="tabpanel" hidden>
+            Support coverage includes review workflows, artifact triage, and baseline approval.
+          </div>
+        </section>
+
+        <section class="section-band" aria-labelledby="related-products-heading">
+          <h2 id="related-products-heading">Related Products</h2>
+          <div class="grid three">
+            <article class="related-card">
+              <h3>Snapshot Starter</h3>
+              <p>Baseline review templates and approval notes.</p>
+            </article>
+            <article class="related-card">
+              <h3>Viewport Matrix</h3>
+              <p>Predefined screen sizes for responsive visual checks.</p>
+            </article>
+            <article class="related-card">
+              <h3>Masking Pack</h3>
+              <p>Selectors for timestamps, profile status, and environment badges.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

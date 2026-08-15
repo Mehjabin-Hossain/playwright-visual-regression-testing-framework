@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VisualSure Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-testid="app-shell" data-theme="light">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="/" aria-label="VisualSure home">
+            <span class="brand-mark">V</span>
+            <span>VisualSure</span>
+          </a>
+          <nav class="primary-nav" aria-label="Primary navigation">
+            <a aria-current="page" href="/">Home</a>
+            <a href="/product.html">Product</a>
+            <a href="/dashboard.html">Dashboard</a>
+          </nav>
+          <div class="header-actions">
+            <button
+              class="theme-switch"
+              type="button"
+              role="switch"
+              aria-checked="false"
+              aria-label="Use dark theme"
+              data-testid="theme-switch"
+            >
+              Light on
+            </button>
+            <button
+              class="icon-button"
+              type="button"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              data-testid="mobile-menu-toggle"
+            >
+              menu
+            </button>
+          </div>
+        </div>
+        <div
+          class="mobile-panel"
+          aria-hidden="true"
+          aria-label="Mobile navigation"
+          data-testid="mobile-navigation-panel"
+        >
+          <a href="/">Home</a>
+          <a href="/product.html">Product</a>
+          <a href="/dashboard.html">Dashboard</a>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="hero" data-testid="hero">
+          <div>
+            <p class="eyebrow">Visual quality gate</p>
+            <h1>VisualSure</h1>
+            <p class="lead">
+              A deterministic sample application for validating full-page, component, responsive,
+              dark-mode, masked-content, and interaction-state screenshots.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="/product.html">Review product</a>
+              <button class="button secondary" type="button" data-testid="open-release-modal">
+                Open release notes
+              </button>
+            </div>
+          </div>
+          <div class="visual-panel" aria-label="Stable analytics preview">
+            <div class="mock-window">
+              <div class="mock-toolbar">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="mock-body">
+                <div class="mock-card">
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                  <div class="mock-meter"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-line"></div>
+                  <div class="mock-line short"></div>
+                  <div class="mock-meter"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="status-strip" aria-label="Application status">
+          <span
+            data-testid="dynamic-date"
+            data-dynamic-content="true"
+            data-visual-value="Release window: 2026-07-20"
+          >
+            Release window: 2026-07-20
+          </span>
+          <span>Build channel: stable</span>
+        </section>
+
+        <section class="section-band" aria-labelledby="features-heading">
+          <h2 id="features-heading">Coverage Areas</h2>
+          <div class="grid three">
+            <article class="feature-card" data-testid="feature-card-full-page">
+              <span class="feature-icon">F</span>
+              <h3>Full-page checks</h3>
+              <p>
+                Capture complete workflows with strict baseline comparison and traceable outputs.
+              </p>
+            </article>
+            <article class="feature-card" data-testid="feature-card-component">
+              <span class="feature-icon">C</span>
+              <h3>Component checks</h3>
+              <p>Target stable UI sections without hiding meaningful visual defects.</p>
+            </article>
+            <article class="feature-card" data-testid="feature-card-responsive">
+              <span class="feature-icon">R</span>
+              <h3>Responsive checks</h3>
+              <p>Exercise documented viewport sizes with separate, reviewable baselines.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-band" aria-labelledby="testimonials-heading">
+          <h2 id="testimonials-heading">Team Feedback</h2>
+          <div class="grid three">
+            <blockquote class="testimonial">
+              <p>"The screenshot review is clear, fast, and easy to reproduce."</p>
+              <cite>QA Lead</cite>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p>"Baselines move only after intentional product design approval."</p>
+              <cite>Design Systems</cite>
+            </blockquote>
+            <blockquote class="testimonial">
+              <p>"The CI gate catches UI drift before it reaches production."</p>
+              <cite>Release Engineering</cite>
+            </blockquote>
+          </div>
+        </section>
+      </main>
+
+      <div class="modal-backdrop" aria-hidden="true" data-testid="release-modal-backdrop">
+        <section class="modal" role="dialog" aria-modal="true" aria-label="Release notes">
+          <h2>Release notes</h2>
+          <p>VisualSure 1.0 adds stable screenshots, masked dynamic content, and CI reporting.</p>
+          <button class="button primary" type="button" data-testid="close-release-modal">
+            Close release notes
+          </button>
+        </section>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          VisualSure demo site. Local, deterministic, and dependency-free.
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
